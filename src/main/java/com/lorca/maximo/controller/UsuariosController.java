@@ -1,5 +1,6 @@
 package com.lorca.maximo.controller;
 
+import com.lorca.maximo.dao.UsuariosDao;
 import com.lorca.maximo.dto.UsuarioDto;
 import com.lorca.maximo.model.UsuariosModel;
 import javafx.collections.FXCollections;
@@ -9,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+
 import java.time.LocalDateTime;
 
 public class UsuariosController {
@@ -28,6 +30,7 @@ public class UsuariosController {
     public TableColumn colEdad;
     @FXML
     public TableColumn<UsuarioDto, LocalDateTime> colFechaCreacion; // Agregar hora
+
 
 
     @FXML
@@ -56,6 +59,9 @@ public class UsuariosController {
     @FXML
     public TextField txtEdad;
 
+    @FXML
+    public Label lblResultado;
+    UsuariosDao usuariosDao = new UsuariosDao();
 
 
     public UsuariosController() {
@@ -140,5 +146,15 @@ public class UsuariosController {
     @FXML
     public void handleActualizarTabla(ActionEvent actionEvent) {  //Actualizar hora en tabla
         this.usuarios.setAll(this.usuariosModel.getUsuarios());
+    }
+    @FXML
+    public void onGuardar(ActionEvent actionEvent) {
+        String nombre = txtNombre.getText();
+        this.usuariosDao.guardarNombre(nombre);
+    }
+    @FXML
+    public void onLeer(ActionEvent actionEvent) {
+        String nombre = this.usuariosDao.leerNombre();
+        this.lblResultado.setText(nombre);
     }
 }

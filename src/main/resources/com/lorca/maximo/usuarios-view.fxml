@@ -1,34 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.*?>
+
 <?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<VBox
-        alignment="CENTER"
-        spacing="20.0"
-        xmlns="http://javafx.com/javafx/17.0.12"
-        xmlns:fx="http://javafx.com/fxml/1"
-        fx:controller="com.lorca.maximo.controller.UsuariosController">
-    <Label text="Gestión de Usuarios" style="-fx-font-size: 18px" />
+<VBox alignment="CENTER" prefHeight="516.0" prefWidth="835.0" spacing="20.0" style="-fx-background-color: navy blue;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lorca.maximo.controller.UsuariosController">
+    <Label style="-fx-font-size: 18px" text="Gestión de Usuarios" textFill="WHITE" />
 
-    <HBox spacing="10" alignment="CENTER">
-        <TextField fx:id="txtId" promptText="Id" disable="true" prefWidth="40" />
-        <TextField fx:id="txtNombre" promptText="Nombre de usuario" prefWidth="100" />
-        <TextField fx:id="txtContrasena" promptText="Contraseña" prefWidth="100" />
-        <TextField fx:id="txtCorreo" promptText="Correo" prefWidth="100" />
-        <TextField fx:id="txtEdad" promptText="Edad" prefWidth="100" />
-        <Button fx:id="btnAgregar" onAction="#handleAgregarUsuario" text="Agregar" defaultButton="true" />
-        <Button fx:id="btnEliminar" onAction="#handleEliminarUsuario" text="Eliminar" disable="true" />
+    <HBox alignment="CENTER" spacing="10">
+        <TextField fx:id="txtId" disable="true" prefWidth="40" promptText="Id" />
+        <TextField fx:id="txtNombre" prefHeight="25.0" prefWidth="119.0" promptText="Nombre de usuario" />
+        <TextField fx:id="txtContrasena" prefWidth="100" promptText="Contraseña" />
+        <TextField fx:id="txtCorreo" prefWidth="100" promptText="Correo" />
+        <TextField fx:id="txtEdad" prefHeight="25.0" prefWidth="67.0" promptText="Edad" />
+        <Button fx:id="btnAgregar" defaultButton="true" onAction="#handleAgregarUsuario" text="Agregar" />
+        <Button fx:id="btnEliminar" disable="true" onAction="#handleEliminarUsuario" style="-fx-background-color: salmon red;" text="Eliminar" />
         <Button fx:id="btnActualizar" onAction="#handleActualizarTabla" text="Actualizar" />
+        <Button onAction="#onGuardar" style="-fx-background-color: green;" text="Guardar" />
+        <Button onAction="#onLeer" text="Leer" />
     </HBox>
 
-    <TableView fx:id="tableUsuarios" onMouseClicked="#handleSeleccionar">
+    <TableView fx:id="tableUsuarios" onMouseClicked="#handleSeleccionar" prefHeight="411.0" prefWidth="732.0">
         <columns>
             <TableColumn fx:id="colId" text="ID" />
             <TableColumn fx:id="colNombre" text="Nombre" />
-            <TableColumn fx:id="colContrasena" text="Contraseña" />
-            <TableColumn fx:id="colCorreo" text="Correo" />
-            <TableColumn fx:id="colEdad" text="Edad" />
-            <TableColumn fx:id="colFechaCreacion" text="Fecha Creación" /> 
+            <TableColumn fx:id="colContrasena" prefWidth="102.0" text="Contraseña" />
+            <TableColumn fx:id="colCorreo" prefWidth="77.0" text="Correo" />
+            <TableColumn fx:id="colEdad" prefWidth="61.0" text="Edad" />
+            <TableColumn fx:id="colFechaCreacion" prefWidth="130.0" text="Fecha Creación" /> 
         </columns>
     </TableView>
 </VBox>

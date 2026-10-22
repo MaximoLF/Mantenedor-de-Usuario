@@ -15,4 +15,6 @@ module com.lorca.maximo {
     exports com.lorca.maximo;
     exports com.lorca.maximo.dto;
 
+    exports com.lorca.maximo.controller;
+
 }
